@@ -1,0 +1,101 @@
+/*****************************************************************************/
+/***********************************  HEDER  *********************************/
+/*****************************************************************************/
+.heder{
+	height: 50px; 	
+    background: black;
+}
+.heder > div{
+    float: left;
+    color: #9d9a9a;
+}
+.heder > div > ul{
+    margin: 0;
+    padding: 6px;
+}
+ .heder > div > ul > li{
+    border-right: 1px solid #9d9a9a;
+    display: block;
+    float: left;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 15px;      
+}   
+.heder > div > ul > li:hover{
+    text-shadow: white 0 0 10px; 
+}
+/*****************************************************************************/
+/*****************************************************************************/
+/*****************************************************************************/
+
+
+body{
+    font-family: 'Calibri';
+}
+.contener{
+	width: 80%; 
+    margin-left: 10%;
+    margin-top: -50px;
+	height: 600px; 	
+}
+.backgroundheder{
+	height: 50px; 	
+    background: black;
+}
+.logobottonbackground{
+    height: 25px; 	
+}
+#bigfont{
+    padding-top: 5px;
+    font-size: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background: white;
+    text-align: center;
+}
+
+/*****************************************************************************/
+/*******************************  CONTENT  ***********************************/
+/*****************************************************************************/
+.content{
+	height: 50px; 	
+}
+.rightContentDive{   
+    float: right; 
+    width: 68%;
+}
+.leftContentDive{
+    float: left;
+    width: 30%;
+}
+.content > div > div{
+    background: gainsboro;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.content > div > img{
+	float: left;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.content > div > ul{
+    color: #626065;
+    margin: 0;
+    padding: 0;
+}
+.content > div > ul > li{
+    border-bottom: 1px solid gainsboro;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+    float: top;
+}
+.content > div > ul > li:hover{
+    text-shadow: slategrey 0 0 10px; 
+}
+/*****************************************************************************/
+/*****************************************************************************/
+/*****************************************************************************/
+
+
