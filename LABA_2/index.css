@@ -13,15 +13,68 @@
     margin: 0;
     padding: 6px;
 }
- .heder > div > ul > li{
-    border-right: 1px solid #9d9a9a;
-    display: block;
-    float: left;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-top: 15px;      
-}   
+@media (max-width: 1138px){
+    .heder > div > ul > div > li {
+            border-right: 1px solid #9d9a9a;
+            display: block;
+            float: left;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-top: 15px;      
+        } 
+}
+@media (min-width: 1138px){
+    .heder > div > ul > div > li {
+            display: none;
+            border-right: 1px solid #9d9a9a;
+            float: left;
+            margin-top: 15px;      
+        } 
+}
+@media (max-width: 1138px){
+    .heder > div > ul > li{
+            display: none;
+            border-right: 1px solid #9d9a9a;
+            float: left;
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-top: 15px;      
+        } 
+}
+@media (min-width: 1135px){
+    .heder > div > ul > li{
+            border-right: 1px solid #9d9a9a;
+            display: block;
+            float: left;
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-top: 15px;      
+        } 
+}  
+@media (min-width: 1210px){
+    .heder > div > ul > li{
+            border-right: 1px solid #9d9a9a;
+            display: block;
+            float: left;
+            padding-right: 8px;
+            padding-left: 8px;
+            margin-top: 15px;      
+        } 
+}  
+@media (min-width: 1275px){
+    .heder > div > ul > li{
+        border-right: 1px solid #9d9a9a;
+        display: block;
+        float: left;
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-top: 15px;      
+    }   
+}
 .heder > div > ul > li:hover{
+    text-shadow: white 0 0 10px; 
+}
+.heder > div > ul > div > li:hover{
     text-shadow: white 0 0 10px; 
 }
 /*****************************************************************************/
@@ -45,13 +98,45 @@ body{
 .logobottonbackground{
     height: 25px; 	
 }
-#bigfont{
-    padding-top: 5px;
-    font-size: 60px;
-    padding-left: 40px;
-    padding-right: 40px;
-    background: white;
-    text-align: center;
+@media (max-width: 1135px){
+    #bigfont{
+        padding-top: 5px;
+        font-size: 35px;
+        padding-left: 20px;
+        padding-right: 20px;
+        background: white;
+        text-align: center;
+    }
+} 
+@media (min-width: 1135px){
+    #bigfont{
+        padding-top: 5px;
+        font-size: 40px;
+        padding-left: 30px;
+        padding-right: 30px;
+        background: white;
+        text-align: center;
+    }
+}  
+@media (min-width: 1210px){
+    #bigfont{
+        padding-top: 5px;
+        font-size: 50px;
+        padding-left: 40px;
+        padding-right: 40px;
+        background: white;
+        text-align: center;
+    }
+}  
+@media (min-width: 1275px){
+    #bigfont{
+        padding-top: 5px;
+        font-size: 60px;
+        padding-left: 40px;
+        padding-right: 40px;
+        background: white;
+        text-align: center;
+    }
 }
 
 /*****************************************************************************/
@@ -60,13 +145,29 @@ body{
 .content{
 	height: 50px; 	
 }
-.rightContentDive{   
-    float: right; 
-    width: 68%;
+@media (max-width: 650px){
+   .rightContentDive{   
+        float: left; 
+        width: 100%;
+    }
+} 
+@media (min-width: 650px){
+   .rightContentDive{   
+        float: right; 
+        width: 68%;
+    }
 }
-.leftContentDive{
-    float: left;
-    width: 30%;
+@media (max-width: 650px){
+    .leftContentDive{
+        float: left;
+        width: 100%;
+    }
+} 
+@media (min-width: 650px){
+    .leftContentDive{
+        float: left;
+        width: 30%;
+    }
 }
 .content > div > div{
     background: gainsboro;
