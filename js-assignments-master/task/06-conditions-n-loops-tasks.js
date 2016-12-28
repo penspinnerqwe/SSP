@@ -283,29 +283,22 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(ccn) {
-    var arr=ccn.toString().split('').map(function(v){return Number(v)});
+    var arr=ccn.toString().split('').map((v)=>{return Number(v)});
     var result=0;
     if(arr.length%2==0){
         for(var i=0;i<arr.length;i+=2){
             arr[i]*=2;
-            if(arr[i]>9){
+            if(arr[i]>9)
                 arr[i]-=9;
-            };
-            result=arr.reduce(function(x,y){
-                return x+y;
-            });
-            
+            result=arr.reduce((x,y)=>{return x+y;});          
         }
     } else
     if(arr.length%2!=0){
         for(var i=1;i<arr.length;i+=2){
             arr[i]*=2;
-            if(arr[i]>9){
+            if(arr[i]>9)
                 arr[i]-=9;
-            };
-            result=arr.reduce(function(x,y){
-                return x+y;
-            });        
+            result=arr.reduce((x,y)=>{return x+y;});        
         }
     }
     return result%10==0;
@@ -327,15 +320,11 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-      var arr=num.toString().split('').map(function(v){return Number(v)});
-    var res=arr.reduce(function(x,y){
-        return x+y;
-    })
-    if(res>9){
-        res=res.toString().split('').map(function(v){return Number(v)});
-        res=res.reduce(function(x,y){return x+y});
-    }
-    return res;
+    var arr=num.toString().split('').map((v) => Number(v));
+    var summ=arr.reduce((x,y)=>{return x+y;});
+    var arr1=summ.toString().split('').map((v) => Number(v));
+    summ=arr1.reduce((x,y)=>{return x+y;});
+    return summ;
 }
 
 
@@ -361,7 +350,17 @@ function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true 
  */
 function isBracketsBalanced(str) {
-   throw new Error('Not implemented');
+   var mass = [],
+          open  = ['[', '(', '{', '<'],
+          close = [']', ')', '}', '>'];
+      for (var i = 0; i < str.length; i++) {
+          if (open.indexOf(str[i]) >= 0)
+              mass.push(open.indexOf(str[i]));
+          else if (close[mass.pop()] !== str[i])
+              return false;
+      }
+    return mass.length === 0;
+
 }
 
 
@@ -397,7 +396,28 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-    throw new Error('Not implemented');
+    var time = (endDate - startDate ) ;
+    if (time <= 45 * 1000)
+        return 'a few seconds ago';
+    if (time <= 90 * 1000)
+        return 'a minute ago';
+    if (time <= 45 * 60 * 1000)
+        return (Math.round((time - 1) / 60 / 1000)  + " minutes ago")
+    if (time <= 90 * 60 * 1000)
+        return 'an hour ago';
+    if (time <= 22 * 60 * 60 * 1000)
+        return (Math.round((time - 1) / 60 / 60 / 1000) + " hours ago");
+    if (time <= 36 * 60 * 60 * 1000)
+        return 'a day ago';
+    if (time <= 25 * 24 * 60 * 60 * 1000)
+        return (Math.round((time - 1) / 24 / 60 / 60 / 1000) + " days ago");
+    if (time <= 45 * 24 * 60 * 60 * 1000)
+        return 'a month ago';
+    if (time <= 345 * 24 * 60 * 60 * 1000)
+        return (Math.round(time / 30 / 24 / 60 / 60 / 1000) + " months ago");
+    if (time <= 545 * 24 * 60 * 60 * 1000)
+        return 'a year ago';
+    return ( Math.round(time / 365 / 24 / 60 / 60 / 1000) + " years ago");
 }
 
 
@@ -423,8 +443,8 @@ function timespanToHumanString(startDate, endDate) {
 function toNaryString(num, n) {
      var resArr=[];
             do{
-                    resArr.push(num%n);
-                    num = Math.floor(num/n);
+                resArr.push(num%n);
+                num = Math.floor(num/n);
             }while(num>=n);
             resArr.push(num);
             return resArr.reverse().join('');
@@ -444,7 +464,20 @@ function toNaryString(num, n) {
  *   ['/web/favicon.ico', '/web-scripts/dump', '/webalizer/logs'] => '/'
  */
 function getCommonDirectoryPath(pathes) {
-    throw new Error('Not implemented');
+  var path = '';
+  for (var i = 0; i < pathes[0].length; i++) {
+      var b = true;
+      for (var j = 1; j < pathes.length; j++)
+          if (pathes[0][i] != pathes[j][i]) {
+              b = false;
+              break;
+          }
+      if (!b)
+          break;
+      else
+          path += pathes[0][i];
+  }
+  return path.slice(0, path.lastIndexOf('/') + 1)
 }
 
 /**
@@ -466,7 +499,16 @@ function getCommonDirectoryPath(pathes) {
  *
  */
 function getMatrixProduct(m1, m2) {
-    throw new Error('Not implemented');
+   var result = [ ];
+    for ( var i = 0 ; i < m1.length ; i++)  result[i] = [];
+        for (var k = 0 ; k < m2[0].length; k++ ){
+            for (var i = 0 ; i<m1.length; i++){
+                    var t = 0;
+                    for(var j = 0; j < m2.length; j++) t += m1[i][j] * m2[j][k];
+                    result[i][k] = t;
+                }
+            }
+  return result;
 }
 
 
@@ -501,7 +543,20 @@ function getMatrixProduct(m1, m2) {
  *
  */
 function evaluateTicTacToePosition(position) {
-    throw new Error('Not implemented');
+     var d1 = position[0][0] !== undefined,
+        d2 = position[0][2] !== undefined;
+    for (var i = 0; i < 3; i++) {
+        if (position[i][0] === position[i][1] && position[i][0] === position[i][2] && position[i][0] !== undefined)
+            return position[i][0];
+        if (position[0][i] === position[1][i] && position[0][i] === position[2][i] && position[0][i] !== undefined)
+            return position[0][i];
+        d1 = d1 && position[0][0] === position[i][i];
+        d2 = d2 && position[0][2] === position[i][2 - i];
+    }
+    if (d1)
+        return position[0][0];
+    if (d2)
+        return position[0][2];
 }
 
 

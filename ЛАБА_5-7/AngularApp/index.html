@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/index.css" />
+</head>
+<body>
+    <div class="contener">     
+        <script src="lib/app.js"></script>
+        <main ng-controller="AppController"> 
+             
+    	    <div class="button-contener"> <h2>Фильтр</h2></div>
+		    <div class="button-contener"> <input type="text"  ng-model="filt" ></input></div>                                
+            <hr style="width: 100%; border: 1px solid white;">
+            <div class="list-style" style="height: 100px">
+                <div class="FN-div" style="text-align: center"><h2>Обложка</h2></div>
+                <div class="LN-div" style="text-align: center"><h2>Описание</h2></div>
+                <div class="AG-div" style="text-align: center"><h2>Ссылки</h2></div> 
+            </div> 
+            <div ng-class="$odd ? 'list-style' : 'even-list-style'" ng-repeat="book in books | orderBy:sortparam:sortReverse | limitTo:filt" >  
+                <div class="FN-div" >
+                    <div><img ng-src={{book.media[0]["media-metadata"][1].url}}></div>
+                    <div>{{book.byline}}</div>             
+                </div>  
+                <div class="LN-div" >
+                    <div><h4>{{book.title}}</h4></div>
+                    <div>{{book.abstract}}</div>
+                </div>      
+                <div class="AG-div" >
+                    <div><a href="{{book.url}}">читать источник...</a></div>
+                </div>              
+            </div>
+
+            <div>          
+            <div class="button-contener">
+                <h2>Заголовок</h2>
+                <input type="text" ng-model="title">
+            </div>
+            <div class="button-contener">
+                <h2>Описание</h2>
+                <input type="text" ng-model="abstract">
+            </div>
+            <div class="button-contener">
+                <h2>Ссылки</h2>
+                <input type="text" ng-model="url">
+            </div>   
+            <div class="button-contener">
+                <h2>Ввести</h2>
+                <button class="button" ng-click="Addbook(title,abstract,url)">Добавить новость</button>
+            </div>    
+            </div> 
+            <hr style="width: 100%; border: 1px solid white;">   
+        </main>
+    <div>
+</body>
+</html>
