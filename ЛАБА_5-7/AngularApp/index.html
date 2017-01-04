@@ -18,8 +18,8 @@
                 <div class="AG-div" style="text-align: center"><h2>Ссылки</h2></div> 
             </div> 
             <div ng-class="$odd ? 'list-style' : 'even-list-style'" ng-repeat="book in books | orderBy:sortparam:sortReverse | limitTo:filt" >  
-                <div class="FN-div" >
-                    <div><img ng-src={{book.media[0]["media-metadata"][1].url}}></div>
+                <div class="FN-div" >                     
+                    <div><img ng-src={{GetImg(book)}}></div>
                     <div>{{book.byline}}</div>             
                 </div>  
                 <div class="LN-div" >

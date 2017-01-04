@@ -10,7 +10,15 @@ app.controller('AppController',["$http","$scope","imageService",function($http,$
                 .success(function(result){
                    $scope.books = result.results;
                 });
-     
+                
+            $scope.GetImg = function(book){
+                for(var i=0;i<book.media[0]["media-metadata"].length;i++)
+                    if(book.media[0]["media-metadata"][i].width===210)
+                        return book.media[0]["media-metadata"][i].url;
+               return null;
+            }    
+
+                
             $scope.Addbook = function(title,abstract,url){
                 $scope.books.push({
                     url: url,
