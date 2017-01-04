@@ -1,4 +1,4 @@
-app.service('imageService', function(){
+app.service('imageService', [function(){
     return{
             media: [{
                     type: "image",
@@ -26,4 +26,4 @@ app.service('imageService', function(){
                     }
                 ]
             }] 
-};})
+};}])

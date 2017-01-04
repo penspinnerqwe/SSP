@@ -1,6 +1,6 @@
 var app = angular.module('app', []);
 
-app.controller('AppController',function($http,$scope,imageService){
+app.controller('AppController',["$http","$scope","imageService",function($http,$scope,imageService){
 
             $scope.books = [];
             $scope.filt ;
@@ -29,4 +29,4 @@ app.controller('AppController',function($http,$scope,imageService){
                     media: imageService.media
                 });
             };        
-    });
+    }]);
